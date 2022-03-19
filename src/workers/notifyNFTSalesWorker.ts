@@ -76,7 +76,7 @@ export default function newWorker(
           }
 
           // Don't notify purchases by the project's own account
-          if (nftSale.buyer === project.mintAddress) {
+          if (nftSale.buyer === project.mintAddress || nftSale.seller === project.mintAddress) {
             return;
           }
           if (channel) {
