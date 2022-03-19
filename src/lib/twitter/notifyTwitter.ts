@@ -7,11 +7,13 @@ export default async function notifyTwitter(
   nftSale: NFTSale
 ) {
   const nftName = nftSale.nftData?.name;
-  const text = `${nftName} has just been sold ${
-    nftSale.method === SaleMethod.Bid ? "via bidding " : ""
-  }for ${nftSale.getPriceInSOL()} S◎L at ${
-    nftSale.marketplace.name
-  }! #SolanaNFTs #NFTSale`;
+  const text = `🚀 ${nftName} SOLD ${nftSale.method === SaleMethod.Bid ? "via bidding " : ""}for ${nftSale.getPriceInSOL()} S◎L!
+  
+🪙 ${nftSale.marketplace.itemURL(nftSale.token)}
+
+ @josephtaylorart
+
+#NFT #Solana #SolanaNFTs`;
 
   const mediaArr: string[] = [];
   if (Boolean(nftSale.nftData?.image)) {
